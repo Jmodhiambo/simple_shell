@@ -13,5 +13,6 @@ void my_prompt(void);
 int execute_command(char *input[]);
 char *read_line(void);
 void process_input(char *line);
+char *command_path(char *command);
 
 #endif /* SHELL_H */
