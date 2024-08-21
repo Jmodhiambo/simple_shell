@@ -10,7 +10,7 @@
 
 void my_printf(const char *message);
 void my_prompt(void);
-int execute_command(char *input);
+int execute_command(char *input[]);
 char *read_line(void);
 void process_input(char *line);
 

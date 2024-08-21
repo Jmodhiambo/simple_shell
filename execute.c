@@ -7,10 +7,10 @@
 * Return: void
 */
 
-int execute_command(char *input)
+int execute_command(char *input[])
 {
 	pid_t child = fork();
-	char *argv[2];
+	/*char *argv[2];*/
 
 	if (child == -1)
 	{
@@ -19,10 +19,10 @@ int execute_command(char *input)
 	}
 	else if (child == 0)
 	{
-		argv[0] = input; /* Assigns input to argv[0] */
-		argv[1] = NULL; /* Terminates the array with NULL */
+		/*argv[0] = input;  Assigns input to argv[0] */
+		/*argv[1] = NULL; Terminates the array with NULL */
 
-		execve(input, argv, NULL);
+		execve(input[0], input, NULL);
 		perror("execve");
 		exit(EXIT_FAILURE);
 	}
@@ -42,13 +42,20 @@ int execute_command(char *input)
  */
 void process_input(char *line)
 {
+	char *argv[20];
+	int i = 0;
 	char *token = strtok(line, " "); /* Get the command */
 
-	if (token != NULL)
+	while (token != NULL)
 	{
-		if (execute_command(token) == -1)
-		{
-			my_printf("Command not found\n");
-		}
+		argv[i] = token;
+		token = strtok(NULL, "");
+		i++;
+	}
+	argv[i] = NULL;
+
+	if (execute_command(argv) == -1)
+	{
+		my_printf("Command not found\n");
 	}
 }
