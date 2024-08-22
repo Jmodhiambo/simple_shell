@@ -51,6 +51,8 @@ void process_input(char *line)
 	}
 	argv[i] = NULL;
 
+	exiting(argv[0]);
+
 	/* Find full path for the command if not an absolute path*/
 	if (argv[0][0] != '/')
 	{
@@ -68,5 +70,21 @@ void process_input(char *line)
 	if (execute_command(argv) == -1)
 	{
 		my_printf("Command not found\n");
+	}
+}
+
+/**
+* exiting - exits the shell if user inputs "exit".
+* @command: if its exit command the shell exits.
+*
+* Return: void.
+*/
+void exiting(char *command)
+{
+	char *ext = "exit";
+
+	if (strcmp(ext, command) == 0)
+	{
+		exit(EXIT_SUCCESS);
 	}
 }
