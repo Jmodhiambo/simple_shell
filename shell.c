@@ -53,3 +53,18 @@ void my_prompt(void)
 {
 	my_printf("#cisfun$ ");
 }
+
+/**
+* _printf - prints to the screen
+* @format: variadic functions
+*
+* Return: void.
+*/
+void _printf(const char *format, ...)
+{
+	va_list args;
+
+	va_start(args, format);
+	vprintf(format, args);
+	va_end(args);
+}

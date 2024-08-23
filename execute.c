@@ -51,6 +51,8 @@ void process_input(char *line)
 	}
 	argv[i] = NULL;
 
+	env_variable(argv[0]);
+
 	exiting(argv[0]);
 
 	/* Find full path for the command if not an absolute path*/
