@@ -11,7 +11,7 @@ char *read_line(void)
 	size_t len = 0;
 	ssize_t getline_return;
 
-	getline_return = getline(&line, &len, stdin);
+	getline_return = my_getline(&line, &len, fileno(stdin));
 
 	if (getline_return == -1)
 	{

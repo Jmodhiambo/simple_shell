@@ -21,5 +21,6 @@ void process_input(char *line);
 char *command_path(char *command);
 void exiting(char *command);
 void env_variable(char *command);
+ssize_t my_getline(char **lineptr, size_t *n, int fd);
 
 #endif /* SHELL_H */
