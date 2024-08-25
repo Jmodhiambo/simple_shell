@@ -40,13 +40,13 @@ void process_input(char *line)
 {
 	char *argv[30];
 	int i = 0;
-	char *token = strtok(line, " "); /* Get the command */
+	char *token = _strtok(line, " "); /* Get the command */
 	char *the_path;
 
 	while (token != NULL)
 	{
 		argv[i] = token;
-		token = strtok(NULL, " ");
+		token = _strtok(NULL, " ");
 		i++;
 	}
 	argv[i] = NULL;
