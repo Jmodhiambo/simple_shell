@@ -21,7 +21,14 @@ void process_input(char *line);
 char *command_path(char *command);
 void exiting(char *command);
 void env_variable(char *command);
-ssize_t my_getline(char **lineptr, size_t *n, int fd);
+ssize_t _getline(char **lineptr, size_t *n, int fd);
 char *_strtok(char *str, const char *delim);
+int _strcmp(const char *str1, const char *str2);
+char *_strdup(const char *str);
+size_t _strlen(const char *str);
+char *_strcpy(char *str1, const char *str2);
+char *_strcat(char *str1, const char *str2);
+char *_strchr(const char *str, int c);
+void *_memcpy(void *dest, const void *src, size_t n);
 
 #endif /* SHELL_H */

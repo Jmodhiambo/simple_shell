@@ -85,7 +85,7 @@ void exiting(char *command)
 {
 	char *ext = "exit";
 
-	if (strcmp(ext, command) == 0)
+	if (_strcmp(ext, command) == 0)
 	{
 		exit(EXIT_SUCCESS);
 	}

@@ -12,7 +12,7 @@ void env_variable(char *command)
 	char *env_v = "env";
 	char **env = environ;
 
-	if (strcmp(env_v, command) == 0)
+	if (_strcmp(env_v, command) == 0)
 	{
 		while (*env)
 		{

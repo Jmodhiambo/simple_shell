@@ -9,7 +9,7 @@
 
 char *command_path(char *command)
 {
-	char *path = strdup(getenv("PATH")); /* Avoids modifying the original*/
+	char *path = _strdup(getenv("PATH")); /* Avoids modifying the original*/
 	char *dir;
 	char *fullpath;
 	size_t len;
@@ -19,12 +19,12 @@ char *command_path(char *command)
 		return (NULL);
 	}
 
-	dir = strtok(path, ":");
+	dir = _strtok(path, ":");
 
 	while (dir != NULL)
 	{
 		/* The (+2) is for '/' and '\0' */
-		len = strlen(dir) + strlen(command) + 2;
+		len = _strlen(dir) + _strlen(command) + 2;
 
 		fullpath = malloc(len);
 
@@ -34,9 +34,9 @@ char *command_path(char *command)
 			return (NULL);
 		}
 
-		strcpy(fullpath, dir);
-		strcat(fullpath, "/");
-		strcat(fullpath, command);
+		_strcpy(fullpath, dir);
+		_strcat(fullpath, "/");
+		_strcat(fullpath, command);
 
 		/* Checks if the command is executable, if so returns the command */
 		if (access(fullpath, X_OK) == 0)
@@ -45,7 +45,7 @@ char *command_path(char *command)
 			return (fullpath);
 		}
 		free(fullpath); /* Frees fullpath if the command is not executable */
-		dir = strtok(NULL, ":"); /* Moves to the next directory in the path*/
+		dir = _strtok(NULL, ":"); /* Moves to the next directory in the path*/
 	}
 	free(path);
 	return (NULL);

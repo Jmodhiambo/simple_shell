@@ -15,7 +15,7 @@ char *read_line(void)
 	size_t len = 0;
 	ssize_t getline_return;
 
-	getline_return = my_getline(&line, &len, fileno(stdin));
+	getline_return = _getline(&line, &len, fileno(stdin));
 
 	if (getline_return == -1)
 	{
@@ -40,7 +40,7 @@ char *read_line(void)
 *
 * Return: the number of characters read, or -1 on failure.
 */
-ssize_t my_getline(char **lineptr, size_t *n, int fd)
+ssize_t _getline(char **lineptr, size_t *n, int fd)
 {
 	static char buffer[BUFFER_SIZE];
 	static ssize_t buffer_pos, buffer_size;
@@ -89,7 +89,7 @@ static char *resize_buffer(char **lineptr, size_t *n, ssize_t line_len)
 	new_line = malloc(*n);
 	if (new_line == NULL)
 		return (NULL);
-	memcpy(new_line, *lineptr, line_len);
+	_memcpy(new_line, *lineptr, line_len);
 	free(*lineptr);
 	return (new_line);
 }
