@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
-* _strcmp - my custom strcmp
+* _strcmp - my custom strcmp.
 * @str1: the first string
 * @str2: the second string
 *

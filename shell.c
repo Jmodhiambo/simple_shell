@@ -56,7 +56,7 @@ void my_prompt(void)
 
 /**
 * _printf - prints to the screen
-* @format: variadic functions
+* @format: variadic functions.
 *
 * Return: void.
 */

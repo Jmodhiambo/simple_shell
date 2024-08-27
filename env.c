@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
-* env_variable - prints enronment variables
+* env_variable - prints enronment variables.
 * @command: the "env" commnad to print the variables
 * @variable: the environment variable for setenv and unsetenv
 * @value: the set value for the variable

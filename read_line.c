@@ -5,7 +5,7 @@
 static char *resize_buffer(char **lineptr, size_t *n, ssize_t line_len);
 
 /**
- * read_line - reads a line of input from the user
+ * read_line - reads a line of input from the user.
  *
  * Return: a pointer to the read line, or NULL on failure
  */

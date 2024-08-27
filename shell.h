@@ -7,11 +7,9 @@
 #include <string.h>
 #include <stdbool.h>
 #include <sys/wait.h>
-#include <sys/stat.h>
 #include <stdarg.h>
 
 extern char **environ;
-
 
 void my_printf(const char *message);
 void _printf(const char *format, ...);

@@ -2,7 +2,7 @@
 
 /**
 * execute_command - executes command using execve.
-* @input: pointer to the input.
+* @input: pointer to the input
 *
 * Return: void
 */

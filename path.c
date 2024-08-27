@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
-* command_path - finds the path to commands without paths
+* command_path - finds the path to commands without paths.
 * @command: the command from the user.
 *
 * Return: Returns the full path of the command.

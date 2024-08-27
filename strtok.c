@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
-* _strtok - my custom strtok
+* _strtok - my custom strtok.
 * @str: the string to be tokenized
 * @delim: the delimeter
 *
