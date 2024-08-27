@@ -53,7 +53,7 @@ void process_input(char *line)
 
 	env_variable(argv[0]);
 
-	exiting(argv[0]);
+	exiting(argv[0], argv[1]);
 
 	/* Find full path for the command if not an absolute path*/
 	if (argv[0][0] != '/')
@@ -78,15 +78,36 @@ void process_input(char *line)
 /**
 * exiting - exits the shell if user inputs "exit".
 * @command: if its exit command the shell exits.
+* @cmd2: optinal argument to check exit status.
 *
 * Return: void.
 */
-void exiting(char *command)
+void exiting(char *command, char *cmd2)
 {
 	char *ext = "exit";
+	int ext_status;
+	char *endptr;
 
-	if (_strcmp(ext, command) == 0)
+	if (_strcmp(ext, command) != 0)
 	{
-		exit(EXIT_SUCCESS);
+		return;
+	}
+
+	if (cmd2 == NULL)
+	{
+		exit(0); /* exits because no arguments passed*/
+	}
+
+	if (cmd2 != NULL)
+	{
+		ext_status = strtol(cmd2, &endptr, 10); /* Converts the long int */
+
+		if (*endptr != '\0' || ext_status < 0 || ext_status > 255)
+		{
+			my_printf("Invalid exit status\n");
+			return;
+		}
+
+		exit(ext_status); /* Exit with a provided argument */
 	}
 }

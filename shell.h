@@ -7,6 +7,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include <sys/wait.h>
+#include <sys/stat.h>
 #include <stdarg.h>
 
 extern char **environ;
@@ -19,7 +20,7 @@ int execute_command(char *input[]);
 char *read_line(void);
 void process_input(char *line);
 char *command_path(char *command);
-void exiting(char *command);
+void exiting(char *command, char *cmd2);
 void env_variable(char *command);
 ssize_t _getline(char **lineptr, size_t *n, int fd);
 char *_strtok(char *str, const char *delim);
