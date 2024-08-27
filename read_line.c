@@ -33,7 +33,7 @@ char *read_line(void)
 }
 
 /**
-* my_getline - custom getline function.
+* _getline - custom getline function.
 * @lineptr: pointer to the buffer where the line is stored.
 * @n: size of the buffer.
 * @fd: file descriptor to read from.

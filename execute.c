@@ -39,7 +39,7 @@ int execute_command(char *input[])
 void process_input(char *line)
 {
 	char *argv[30];
-	int i = 0;
+	int status, i = 0;
 	char *token = _strtok(line, " "); /* Get the command */
 	char *the_path;
 
@@ -51,7 +51,9 @@ void process_input(char *line)
 	}
 	argv[i] = NULL;
 
-	env_variable(argv[0]);
+	status = env_variable(argv[0], argv[1], argv[2]);
+	if (status == 2)
+		return; /* prevents further execution if env_varable is successful*/
 
 	exiting(argv[0], argv[1]);
 
